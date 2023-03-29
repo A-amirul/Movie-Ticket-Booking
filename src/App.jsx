@@ -8,7 +8,17 @@ import SideCart from './components/SideCart/SideCart'
 
 function App() {
   const handleWatchTime = (time) => {
-    console.log(time);
+    // age theke watchTime set kora ache naki seta dekhar jonno
+    const previousWatchTime = JSON.parse(localStorage.getItem('watchTime'));
+    if (previousWatchTime) {
+      // jodi thake tahole ager time er sathe bortoman time add korbo
+      const updateTime = previousWatchTime + time;
+      localStorage.setItem('watchTime',updateTime);
+    }
+    else {
+      // jodi na thake time take set korbo
+      localStorage.setItem('watchTime', time);
+    }
   }
   return (
     <div className="App">
